@@ -1,6 +1,6 @@
 # sip
 
-**sip** (Safe Install Proxy) is a secure, cross-language CLI tool for safely installing packages from curated, verified registries. It wraps native package managers like \`pip\`, \`cargo\`, and \`go\` to prevent supply chain attacks.
+**sip** (Safe Install Proxy) is a secure, cross-language CLI tool for safely installing packages from curated, verified registries. It wraps native package managers like `pip`, `cargo`, and `go` to prevent supply chain attacks.
 
 ## Quickstart
 
