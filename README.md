@@ -4,9 +4,9 @@
 
 ## Quickstart
 
-\`\`\`sh
+```sh
 sip install requests --lang python
-\`\`\`
+```
 
 ## Goals
 
