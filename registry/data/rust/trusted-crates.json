@@ -1,29 +1,29 @@
 [
   {
-    "name": "tokio",
-    "version": "1.29.1",
-    "hash": "sha256:6a93c5c3f0bf7fffe7b42f2e12c4c63f0e8c5a9e5c7b3b3d4e4f4c0b4a4e4e4e",
-    "trust_score": 9.6,
-    "endorsed_by": ["@tokio-rs", "@rust-async"],
-    "last_reviewed": "2025-07-18",
-    "source": "https://github.com/tokio-rs/tokio"
-  },
-  {
     "name": "serde",
-    "version": "1.0.183",
-    "hash": "sha256:8aad19c8d82e0c3d5a8c1c8e8c8c8c8c8c8c8c8c8c8c8c8c8c8c8c8c8c8c8c8c",
+    "version": "1.0.188",
+    "hash": "sha256:cf9e0fcba69a370eed61bcf2b728575f726b50b55cba78064753d708ddc7549e",
     "trust_score": 9.8,
-    "endorsed_by": ["@serde-rs", "@rust-serialization"],
-    "last_reviewed": "2025-07-26",
+    "endorsed_by": ["rust-core-team", "serde-maintainers"],
+    "last_reviewed": "2024-07-18",
     "source": "https://github.com/serde-rs/serde"
   },
   {
+    "name": "tokio",
+    "version": "1.32.0",
+    "hash": "sha256:17ed6077ed6cd6c74735e21f37eb16dc3935f96878b1fe70656f8a8c66b1b6b9",
+    "trust_score": 9.6,
+    "endorsed_by": ["tokio-team", "rust-async-wg"],
+    "last_reviewed": "2024-07-16",
+    "source": "https://github.com/tokio-rs/tokio"
+  },
+  {
     "name": "clap",
-    "version": "4.4.2",
-    "hash": "sha256:b9c9c9c9c9c9c9c9c9c9c9c9c9c9c9c9c9c9c9c9c9c9c9c9c9c9c9c9c9c9c9c9",
+    "version": "4.4.6",
+    "hash": "sha256:d04704f56c2cde07f43e8e2c4c3424b5c3c23f7f3e9cfd6f50b4b5d68d87fc88",
     "trust_score": 9.2,
-    "endorsed_by": ["@clap-rs", "@rust-cli"],
-    "last_reviewed": "2025-07-10",
+    "endorsed_by": ["clap-maintainers"],
+    "last_reviewed": "2024-07-14",
     "source": "https://github.com/clap-rs/clap"
   }
 ]

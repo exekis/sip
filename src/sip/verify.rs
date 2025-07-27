@@ -1,10 +1,11 @@
 use crate::cli::Language;
-use crate::sip::registry::{Registry, PackageEntry};
+use crate::sip::registry::Registry;
+use crate::sip::package::PackageRecord;
 
 #[derive(Debug)]
 pub struct VerificationResult {
     pub package_name: String,
-    pub package_entry: Option<PackageEntry>,
+    pub package_entry: Option<PackageRecord>,
     pub trust_score: Option<f64>,
     pub is_trusted: bool,
     pub trust_threshold: f64,
@@ -21,9 +22,7 @@ impl VerificationResult {
                 println!("last reviewed: {}", entry.last_reviewed);
                 println!("endorsed by: {}", entry.endorsed_by.join(", "));
                 
-                if let Some(source) = &entry.source {
-                    println!("source: {}", source);
-                }
+                println!("source: {}", entry.source);
                 
                 if self.is_trusted {
                     println!("✓ trusted (meets threshold of {:.1})", self.trust_threshold);

@@ -8,7 +8,35 @@
 
 ## 1. Overview
 
-**SIP** is a drop-in, cross-language CLI wrapper for native package managers (pip, cargo, go). It enforces a "trusted registry" model: each package install request is checked against a curated metadata registry before the native installer is invoked. Unverified or low-trust packages trigger an interactive prompt (or fail an automated CI run).
+**SIP** is a drop-in, cross-language CLI wrapper---
+
+## 7. Core Workflows (Implemented)
+
+### 7.0. `sip trust <package> --lang <lang> [--fetch] [--score <score>]`
+
+**Status**: ✅ **implemented and working**
+
+1. **Parse CLI** (`cli.rs` with `clap`)
+2. **Load existing registry** for specified language
+3. **If `--fetch` flag is present**:
+   - query official registry (pypi.org or crates.io)
+   - retrieve real version, hash, source url
+   - validate against json schema
+4. **Create PackageRecord** with:
+   - real metadata (if fetched) or manual entry
+   - specified trust score (default 0.0)
+   - current date as last_reviewed
+   - user endorsement
+5. **Write updated registry** to disk
+6. **Confirm addition** to user
+
+```bash
+# working examples:
+sip trust requests --lang python --fetch --score 9.0
+sip trust serde --lang rust --fetch --score 9.5
+```
+
+### 7.1. `sip install <n> [--lang L]` (planned)native package managers (pip, cargo, go). It enforces a "trusted registry" model: each package install request is checked against a curated metadata registry before the native installer is invoked. Unverified or low-trust packages trigger an interactive prompt (or fail an automated CI run).
 
 This document describes:
 
@@ -117,9 +145,9 @@ sip/
 
 ---
 
-## 5. Registry Schema
+## 5. Registry Schema & Real Data Fetching
 
-**`registry/schema/sip-package.json`** (draft)
+**`registry/schema/sip-package.json`** (implemented)
 
 ```jsonc
 {
@@ -128,15 +156,35 @@ sip/
   "type": "object",
   "properties": {
     "name":       { "type": "string" },
-    "version":    { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$" },
+    "version":    { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+.*$" },
     "hash":       { "type": "string" },      // e.g. "sha256:..."
     "trust_score":{ "type": "number" },      // 0.0 – 10.0
     "endorsed_by":{ "type": "array", "items": { "type": "string" } },
     "last_reviewed": { "type": "string", "format": "date" },
     "source":     { "type": "string", "format": "uri" }
   },
-  "required": [ "name", "version", "hash", "trust_score", "last_reviewed" ]
+  "required": [ "name", "version", "hash", "trust_score", "last_reviewed", "source" ]
 }
+```
+
+### 5.1. Automatic Package Fetching
+
+The `--fetch` flag enables automatic metadata retrieval from official registries:
+
+**Python (PyPI)**:
+- endpoint: `https://pypi.org/pypi/{package}/json`
+- retrieves: latest version, sha256 hash, homepage/project url
+- validates: ensures real semver and valid uri
+
+**Rust (crates.io)**:
+- endpoint: `https://crates.io/api/v1/crates/{package}`
+- retrieves: max_version, checksum, crate url
+- validates: ensures real semver and valid uri
+
+**Example usage**:
+```bash
+sip trust requests --lang python --fetch --score 9.0
+# fetches real metadata: version "2.32.4", real sha256, source url
 ```
 
 Each language's registry (e.g. `trusted-packages.json`) is simply an **array** of these entries.

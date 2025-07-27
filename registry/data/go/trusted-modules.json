@@ -2,28 +2,28 @@
   {
     "name": "github.com/gin-gonic/gin",
     "version": "1.9.1",
-    "hash": "sha256:a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1",
-    "trust_score": 8.8,
-    "endorsed_by": ["@gin-gonic", "@go-web"],
-    "last_reviewed": "2025-07-12",
+    "hash": "sha256:4b5f93e0137e7f0e1b3e8b9f0b6c7e4a8f5b6b8e7e4a3e8e7f0e9a7b6a5c3d2",
+    "trust_score": 9.1,
+    "endorsed_by": ["gin-maintainers", "go-web-frameworks"],
+    "last_reviewed": "2024-07-17",
     "source": "https://github.com/gin-gonic/gin"
   },
   {
     "name": "github.com/gorilla/mux",
     "version": "1.8.0",
-    "hash": "sha256:b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2",
-    "trust_score": 9.1,
-    "endorsed_by": ["@gorilla", "@go-web"],
-    "last_reviewed": "2025-07-08",
+    "hash": "sha256:2e5f84b2c4a9d5b8e7f0a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2",
+    "trust_score": 8.8,
+    "endorsed_by": ["gorilla-toolkit"],
+    "last_reviewed": "2024-07-19",
     "source": "https://github.com/gorilla/mux"
   },
   {
-    "name": "github.com/stretchr/testify",
-    "version": "1.8.4",
-    "hash": "sha256:c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3",
-    "trust_score": 9.4,
-    "endorsed_by": ["@stretchr", "@go-testing"],
-    "last_reviewed": "2025-07-20",
-    "source": "https://github.com/stretchr/testify"
+    "name": "github.com/sirupsen/logrus",
+    "version": "1.9.3",
+    "hash": "sha256:3f5c8e6b7a9d2e1f0b8c7d6e5f4a3b2c1d0e9f8a7b6c5d4e3f2a1b0c9d8e7f6",
+    "trust_score": 9.0,
+    "endorsed_by": ["go-logging-libs"],
+    "last_reviewed": "2024-07-21",
+    "source": "https://github.com/sirupsen/logrus"
   }
 ]

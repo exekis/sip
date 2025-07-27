@@ -4,26 +4,34 @@
     "version": "2.31.0",
     "hash": "sha256:942c5a758f98d790eaed1a29cb6eefc7ffb0d1cf7af05c3d2791656dbd6ad1e1",
     "trust_score": 9.5,
-    "endorsed_by": ["@kennethreitz", "@psf", "@pypa"],
-    "last_reviewed": "2025-07-20",
+    "endorsed_by": [
+      "python-security-team",
+      "community"
+    ],
+    "last_reviewed": "2024-07-20",
     "source": "https://github.com/psf/requests"
   },
   {
     "name": "numpy",
     "version": "1.24.3",
-    "hash": "sha256:ab344f1bf21f140adab8e47fdbc7c35a477dc01408791f8ba00d018dd7bc5dd3",
+    "hash": "sha256:2341f4a325e4de1ea2d5d3ac6c15e8f40013d6bf8fc2de1a5d3b5f7a8eac2c8f",
     "trust_score": 9.8,
-    "endorsed_by": ["@numpy-team", "@scientific-python"],
-    "last_reviewed": "2025-07-25",
+    "endorsed_by": [
+      "scientific-python",
+      "numpy-dev-team"
+    ],
+    "last_reviewed": "2024-07-25",
     "source": "https://github.com/numpy/numpy"
   },
   {
     "name": "flask",
     "version": "2.3.2",
-    "hash": "sha256:77fd4e1249d8c9923de34907236b747ced06e5467ecac1a7bb7115ae0e9670b0",
+    "hash": "sha256:8a4fdd8936eba2512e9c85df320a37e694c93945b33ef33c89946a340a238557",
     "trust_score": 8.9,
-    "endorsed_by": ["@pallets", "@python-web"],
-    "last_reviewed": "2025-07-15",
+    "endorsed_by": [
+      "pallets-team"
+    ],
+    "last_reviewed": "2024-07-15",
     "source": "https://github.com/pallets/flask"
   },
   {
@@ -31,8 +39,38 @@
     "version": "4.2.3",
     "hash": "sha256:45a747e1c5b3d6df1b141b1481e193b033fd1fdbda3ff52677dc81afdaacbaed",
     "trust_score": 9.7,
-    "endorsed_by": ["@django", "@python-web"],
-    "last_reviewed": "2025-07-22",
+    "endorsed_by": [
+      "django-security-team",
+      "django-software-foundation"
+    ],
+    "last_reviewed": "2024-07-22",
     "source": "https://github.com/django/django"
+  },
+  {
+    "name": "requests",
+    "version": "2.32.4",
+    "hash": "sha256:27d0316682c8a29834d3264820024b62a36942083d52caf2f14c0591336d3422",
+    "trust_score": 8.5,
+    "endorsed_by": [],
+    "last_reviewed": "2025-07-27",
+    "source": "https://requests.readthedocs.io"
+  },
+  {
+    "name": "requests",
+    "version": "2.32.4",
+    "hash": "sha256:27d0316682c8a29834d3264820024b62a36942083d52caf2f14c0591336d3422",
+    "trust_score": 8.5,
+    "endorsed_by": [],
+    "last_reviewed": "2025-07-27",
+    "source": "https://requests.readthedocs.io"
+  },
+  {
+    "name": "requests",
+    "version": "2.32.4",
+    "hash": "sha256:27d0316682c8a29834d3264820024b62a36942083d52caf2f14c0591336d3422",
+    "trust_score": 8.5,
+    "endorsed_by": [],
+    "last_reviewed": "2025-07-27",
+    "source": "https://requests.readthedocs.io"
   }
 ]

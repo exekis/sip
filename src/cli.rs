@@ -48,9 +48,65 @@ pub enum Commands {
         #[arg(short, long, value_enum)]
         lang: Option<Language>,
     },
+
+    /// add a package to the trusted registry
+    Trust {
+        /// name of the package to trust
+        #[arg(value_name = "PACKAGE")]
+        package: String,
+
+        /// specific version to trust (optional, defaults to latest)
+        #[arg(short, long)]
+        version: Option<String>,
+
+        /// explicitly specify the language/ecosystem
+        #[arg(short, long, value_enum)]
+        lang: Option<Language>,
+
+        /// fetch metadata from package registry (pypi, crates.io, etc)
+        #[arg(short, long)]
+        fetch: bool,
+
+        /// trust score to assign (0.0 - 10.0)
+        #[arg(short, long, default_value = "5.0")]
+        score: f64,
+    },
+
+    /// remove a package from the trusted registry
+    Untrust {
+        /// name of the package to untrust
+        #[arg(value_name = "PACKAGE")]
+        package: String,
+
+        /// explicitly specify the language/ecosystem
+        #[arg(short, long, value_enum)]
+        lang: Option<Language>,
+    },
+
+    /// list trusted packages in the registry
+    List {
+        /// filter by language/ecosystem
+        #[arg(short, long, value_enum)]
+        lang: Option<Language>,
+    },
+
+    /// bulk fetch package metadata and add to registry
+    BulkTrust {
+        /// file containing package names (one per line)
+        #[arg(short, long)]
+        file: String,
+
+        /// explicitly specify the language/ecosystem
+        #[arg(short, long, value_enum)]
+        lang: Language,
+
+        /// default trust score to assign (0.0 - 10.0)
+        #[arg(short, long, default_value = "5.0")]
+        score: f64,
+    },
 }
 
-#[derive(clap::ValueEnum, Clone, Debug)]
+#[derive(clap::ValueEnum, Clone, Debug, PartialEq)]
 pub enum Language {
     Python,
     Rust,
