@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+echo "installing sip as a Rust binary project"
+cargo build
+cargo install --path .
