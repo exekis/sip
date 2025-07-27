@@ -1,0 +1,38 @@
+[
+  {
+    "name": "requests",
+    "version": "2.31.0",
+    "hash": "sha256:942c5a758f98d790eaed1a29cb6eefc7ffb0d1cf7af05c3d2791656dbd6ad1e1",
+    "trust_score": 9.5,
+    "endorsed_by": ["@kennethreitz", "@psf", "@pypa"],
+    "last_reviewed": "2025-07-20",
+    "source": "https://github.com/psf/requests"
+  },
+  {
+    "name": "numpy",
+    "version": "1.24.3",
+    "hash": "sha256:ab344f1bf21f140adab8e47fdbc7c35a477dc01408791f8ba00d018dd7bc5dd3",
+    "trust_score": 9.8,
+    "endorsed_by": ["@numpy-team", "@scientific-python"],
+    "last_reviewed": "2025-07-25",
+    "source": "https://github.com/numpy/numpy"
+  },
+  {
+    "name": "flask",
+    "version": "2.3.2",
+    "hash": "sha256:77fd4e1249d8c9923de34907236b747ced06e5467ecac1a7bb7115ae0e9670b0",
+    "trust_score": 8.9,
+    "endorsed_by": ["@pallets", "@python-web"],
+    "last_reviewed": "2025-07-15",
+    "source": "https://github.com/pallets/flask"
+  },
+  {
+    "name": "django",
+    "version": "4.2.3",
+    "hash": "sha256:45a747e1c5b3d6df1b141b1481e193b033fd1fdbda3ff52677dc81afdaacbaed",
+    "trust_score": 9.7,
+    "endorsed_by": ["@django", "@python-web"],
+    "last_reviewed": "2025-07-22",
+    "source": "https://github.com/django/django"
+  }
+]

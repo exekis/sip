@@ -1,0 +1,47 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "SIP Package Registry",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "name": {
+        "type": "string",
+        "description": "package name"
+      },
+      "version": {
+        "type": "string",
+        "pattern": "^\\d+\\.\\d+\\.\\d+.*$",
+        "description": "package version"
+      },
+      "hash": {
+        "type": "string",
+        "description": "package hash (e.g. sha256:...)"
+      },
+      "trust_score": {
+        "type": "number",
+        "minimum": 0.0,
+        "maximum": 10.0,
+        "description": "trust score from 0.0 to 10.0"
+      },
+      "endorsed_by": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "list of endorsers"
+      },
+      "last_reviewed": {
+        "type": "string",
+        "format": "date",
+        "description": "last review date (YYYY-MM-DD)"
+      },
+      "source": {
+        "type": "string",
+        "format": "uri",
+        "description": "source repository url"
+      }
+    },
+    "required": ["name", "version", "hash", "trust_score", "last_reviewed"]
+  }
+}

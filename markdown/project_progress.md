@@ -34,31 +34,44 @@
 4. **error handling**: using `Box<dyn std::error::Error>` for now, will refine later
 5. **module organization**: separated concerns into sip/ core and langs/ backends
 
-#### cli binary installation and testing - july 27, 2025
-- successfully built and installed sip binary using `cargo install --path .`
-- verified global `sip` command works correctly
-- tested all cli commands and argument combinations:
-  - `sip --help` - displays proper help text
-  - `sip install requests` - basic install command works
-  - `sip install requests --version 2.31.0 --lang python` - all flags work
-  - `sip verify numpy --lang python` - verify command works
-- confirmed cli parsing and dispatch logic is functioning properly
+#### registry loading and json schema validation - july 27, 2025
+- implemented embedded registry system using rust's `include_str!` macro
+- registry data is compiled directly into the binary - completely portable
+- no external file dependencies - works on any device without configuration
+- created json schema validation for all registry entries
+- schema validates: name, version, hash, trust_score, endorsed_by, last_reviewed, source
+- implemented package lookup functionality across all language ecosystems
+- integrated registry with verify command - displays full package information
+- integrated registry with install command - enforces trust thresholds
+- tested from multiple directories - works from anywhere
+
+### technical decisions made
+
+1. **cli framework**: chose clap with derive macros for type-safe argument parsing
+2. **command structure**: used subcommands (install/verify) rather than flags
+3. **language detection**: explicit via --lang flag, with comprehensive auto-detection
+4. **error handling**: using `Box<dyn std::error::Error>` for now, will refine later
+5. **module organization**: separated concerns into sip/ core and langs/ backends
+6. **registry portability**: embedded data in binary using include_str! for zero-dependency deployment
+7. **schema validation**: jsonschema crate for runtime validation of registry data
 
 ### current issues to resolve
 
-1. project has compilation warnings due to unused functions (expected until integration)
-2. need to complete the integration between cli parsing and module implementations
-3. need to implement actual package manager invocation logic
-4. need to implement language auto-detection when --lang is not specified
+1. project has compilation warnings due to unused functions (expected until full integration)
+2. need to implement actual package manager invocation logic
+3. need to implement interactive prompts for untrusted packages
+4. need to load trust threshold from configuration file
 
 ### next immediate steps
 
 1. ✓ test cli compilation and basic functionality
-2. implement language auto-detection logic based on project files
-3. wire up verify command to display actual package information from registry
-4. implement basic registry loading from json files
-5. integrate verification logic with install command workflow
-6. add integration tests for end-to-end cli workflows
+2. ✓ implement language auto-detection logic based on project files
+3. ✓ implement registry loading and json schema validation
+4. ✓ wire up verify command to display actual package information from registry
+5. integrate verification logic with install command workflow (partially done)
+6. implement actual package manager invocation (pip, cargo, go install)
+7. add interactive prompts for untrusted packages
+8. add integration tests for end-to-end cli workflows
 
 ### testing approach
 

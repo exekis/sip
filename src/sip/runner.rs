@@ -1,4 +1,6 @@
 use crate::cli::{self, Commands, Language};
+use crate::sip::registry::Registry;
+use crate::sip::verify;
 use std::path::Path;
 use std::fs;
 
@@ -23,6 +25,11 @@ pub fn run() {
             handle_verify(package, version, lang);
         }
     }
+}
+
+fn load_registry() -> Result<Registry, Box<dyn std::error::Error>> {
+    // registry data is now embedded in the binary - completely portable!
+    Registry::new()
 }
 
 fn detect_language() -> Option<Language> {
@@ -77,29 +84,51 @@ fn handle_install(
     }
     
     let detected_lang = lang.or_else(detect_language);
-    match detected_lang {
+    let language = match detected_lang {
         Some(language) => {
             println!("language: {}", language);
+            language
         }
         None => {
             println!("could not detect language - please specify with --lang flag");
             println!("supported languages: python, rust, go");
             return;
         }
-    }
+    };
     
-    if yes {
-        println!("auto-approve mode enabled");
-    }
-    if !extra_args.is_empty() {
-        println!("extra args: {:?}", extra_args);
-    }
+    // load registry and verify package
+    let registry = match load_registry() {
+        Ok(reg) => reg,
+        Err(e) => {
+            println!("failed to load registry: {}", e);
+            return;
+        }
+    };
     
-    // todo: implement actual install logic
-    // 1. load registry and config
-    // 2. verify package trust score
-    // 3. prompt user if needed
-    // 4. invoke native package manager
+    let trust_threshold = 8.0; // todo: load from config
+    match verify::verify_package(&package, version.as_deref(), &language, &registry, trust_threshold) {
+        Ok(result) => {
+            result.display();
+            
+            if !result.is_trusted && !yes {
+                println!("\npackage verification failed. use --yes to force install anyway.");
+                return;
+            }
+            
+            if yes {
+                println!("auto-approve mode enabled");
+            }
+            if !extra_args.is_empty() {
+                println!("extra args: {:?}", extra_args);
+            }
+            
+            // todo: invoke actual package manager
+            println!("would now invoke package manager for installation");
+        }
+        Err(e) => {
+            println!("verification error: {}", e);
+        }
+    }
 }
 
 fn handle_verify(package: String, version: Option<String>, lang: Option<Language>) {
@@ -109,18 +138,34 @@ fn handle_verify(package: String, version: Option<String>, lang: Option<Language
     }
     
     let detected_lang = lang.or_else(detect_language);
-    match detected_lang {
+    let language = match detected_lang {
         Some(language) => {
             println!("language: {}", language);
+            language
         }
         None => {
             println!("could not detect language - please specify with --lang flag");
             println!("supported languages: python, rust, go");
             return;
         }
-    }
+    };
     
-    // todo: implement actual verify logic
-    // 1. load registry
-    // 2. lookup package and display trust info
+    // load registry and verify package
+    let registry = match load_registry() {
+        Ok(reg) => reg,
+        Err(e) => {
+            println!("failed to load registry: {}", e);
+            return;
+        }
+    };
+    
+    let trust_threshold = 8.0; // todo: load from config
+    match verify::verify_package(&package, version.as_deref(), &language, &registry, trust_threshold) {
+        Ok(result) => {
+            result.display();
+        }
+        Err(e) => {
+            println!("verification error: {}", e);
+        }
+    }
 }

@@ -1,0 +1,29 @@
+[
+  {
+    "name": "github.com/gin-gonic/gin",
+    "version": "1.9.1",
+    "hash": "sha256:a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1",
+    "trust_score": 8.8,
+    "endorsed_by": ["@gin-gonic", "@go-web"],
+    "last_reviewed": "2025-07-12",
+    "source": "https://github.com/gin-gonic/gin"
+  },
+  {
+    "name": "github.com/gorilla/mux",
+    "version": "1.8.0",
+    "hash": "sha256:b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2",
+    "trust_score": 9.1,
+    "endorsed_by": ["@gorilla", "@go-web"],
+    "last_reviewed": "2025-07-08",
+    "source": "https://github.com/gorilla/mux"
+  },
+  {
+    "name": "github.com/stretchr/testify",
+    "version": "1.8.4",
+    "hash": "sha256:c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3",
+    "trust_score": 9.4,
+    "endorsed_by": ["@stretchr", "@go-testing"],
+    "last_reviewed": "2025-07-20",
+    "source": "https://github.com/stretchr/testify"
+  }
+]

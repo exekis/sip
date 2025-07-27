@@ -1,0 +1,29 @@
+[
+  {
+    "name": "tokio",
+    "version": "1.29.1",
+    "hash": "sha256:6a93c5c3f0bf7fffe7b42f2e12c4c63f0e8c5a9e5c7b3b3d4e4f4c0b4a4e4e4e",
+    "trust_score": 9.6,
+    "endorsed_by": ["@tokio-rs", "@rust-async"],
+    "last_reviewed": "2025-07-18",
+    "source": "https://github.com/tokio-rs/tokio"
+  },
+  {
+    "name": "serde",
+    "version": "1.0.183",
+    "hash": "sha256:8aad19c8d82e0c3d5a8c1c8e8c8c8c8c8c8c8c8c8c8c8c8c8c8c8c8c8c8c8c8c",
+    "trust_score": 9.8,
+    "endorsed_by": ["@serde-rs", "@rust-serialization"],
+    "last_reviewed": "2025-07-26",
+    "source": "https://github.com/serde-rs/serde"
+  },
+  {
+    "name": "clap",
+    "version": "4.4.2",
+    "hash": "sha256:b9c9c9c9c9c9c9c9c9c9c9c9c9c9c9c9c9c9c9c9c9c9c9c9c9c9c9c9c9c9c9c9",
+    "trust_score": 9.2,
+    "endorsed_by": ["@clap-rs", "@rust-cli"],
+    "last_reviewed": "2025-07-10",
+    "source": "https://github.com/clap-rs/clap"
+  }
+]

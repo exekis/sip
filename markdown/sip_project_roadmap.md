@@ -3,8 +3,9 @@
 ## Phase 1: MVP Bootstrap
 
 - [x] Scaffold Rust project and repo structure
-- [ ] Implement CLI parsing (`sip install`, `sip verify`)
-- [ ] Load and validate local registry JSON schema
+- [x] Implement CLI parsing (`sip install`, `sip verify`)
+- [x] Implement language auto-detection logic
+- [x] Load and validate local registry JSON schema
 - [ ] Python backend:
   - [ ] Registry lookup in `trusted-packages.json`
   - [ ] Wrap `pip install <name>==<version>`
